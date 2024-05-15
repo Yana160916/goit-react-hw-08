@@ -1,0 +1,28 @@
+.navAuth {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    /* Добавим отступы по краям для улучшения визуального восприятия */
+}
+
+.navAuth ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navAuth li {
+    margin-left: 20px;
+    /* Добавим отступ между элементами */
+}
+
+.navAuth a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.navAuth a:hover {
+    color: #ff7f50;
+}
