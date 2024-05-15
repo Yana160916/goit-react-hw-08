@@ -1,50 +1,44 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from '../../redux/auth/operations';
-import { useHistory } from 'react-router-dom';
+import { login } from '../../redux/auth/operations.js';
+import css from './LoginForm.module.css';
 
-const LoginForm = () => {
+export const LoginForm = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
-
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      await dispatch(login(formData));
-      history.push('/contacts');
-    } catch (error) {
-      console.error('Login failed:', error);
-    }
+
+    dispatch(login(formData))
+      .unwrap()
+      .then(() => {
+        console.log('login success');
+      })
+      .catch(() => {
+        console.log('login error');
+      });
+
+    setFormData({ email: '', password: '' });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        placeholder="Email"
-        required
-      />
-      <input
-        type="password"
-        name="password"
-        value={formData.password}
-        onChange={handleChange}
-        placeholder="Password"
-        required
-      />
-      <button type="submit">Login</button>
+    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
+      <label className={css.label}>
+        <input type="email" name="email" placeholder='Email' value={formData.email} onChange={handleChange} />
+      </label>
+      <label className={css.label}>
+        <input type="password" name="password" placeholder='Password' value={formData.password} onChange={handleChange} />
+      </label>
+      <button type="submit">Log In</button>
     </form>
   );
 };

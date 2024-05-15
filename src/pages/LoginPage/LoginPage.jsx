@@ -1,31 +1,13 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { login } from "../../redux/auth/operations.js";
-import LoginForm from "../../components/LoginForm/LoginForm.jsx";
+import DocumentTitle from '../../components/DocumentTitle.jsx';
+import LoginForm from '../../components/LoginForm/LoginForm.jsx';
+import styles from './LoginPage.module.css';
 
-const LoginPage = () => {
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const [error, setError] = useState(null);
-
-  const handleLogin = async (credentials) => {
-    try {
-      await dispatch(login(credentials));
-      history.push("/contacts"); 
-    } catch (error) {
-      setError("Invalid email or password");
-      console.error("Login failed:", error);
-    }
-  };
-
+export default function LoginPage() {
   return (
-    <div>
-      <h2>Login</h2>
-      <LoginForm onSubmit={handleLogin} />
-      {error && <p>{error}</p>}
+    <div className={styles.Login}>
+      <h1>Log In</h1>
+      <DocumentTitle>Login</DocumentTitle>
+      <LoginForm />
     </div>
   );
-};
-
-export default LoginPage;
+}

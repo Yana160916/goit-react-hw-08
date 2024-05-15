@@ -1,0 +1,34 @@
+.Register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Register h1 {
+    margin-bottom: 20px;
+}
+
+.Register input {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.Register button {
+    background-color: rgb(255, 235, 253);
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 250px;
+    font-size: large;
+    margin-left: 150px;
+}
+
+.Register button:hover {
+    background-color: #ff7f50;
+}

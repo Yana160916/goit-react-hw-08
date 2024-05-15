@@ -3,7 +3,7 @@
     justify-content: flex-end;
     align-items: center;
     padding: 0 20px;
-    /* Добавим отступы по краям для улучшения визуального восприятия */
+
 }
 
 .navAuth ul {
@@ -15,12 +15,12 @@
 
 .navAuth li {
     margin-left: 20px;
-    /* Добавим отступ между элементами */
+
 }
 
 .navAuth a {
     text-decoration: none;
-    color: #fff;
+    color: #000000;
 }
 
 .navAuth a:hover {
