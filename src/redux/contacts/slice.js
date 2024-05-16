@@ -4,6 +4,7 @@ import {
   fetchContacts,
   addContact,
 } from "../contacts/operations.js";
+import { logOut } from "../auth/operations.js";
 
 const contactsSlice = createSlice({
   name: "contacts",
@@ -52,6 +53,11 @@ const contactsSlice = createSlice({
       .addCase(addContact.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      .addCase(logOut.fulfilled, (state) => {
+        state.items = [];
+        state.loading = false;
+        state.error = null;
       });
   },
 });
