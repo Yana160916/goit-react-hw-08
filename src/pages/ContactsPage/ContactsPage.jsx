@@ -4,12 +4,12 @@ import { fetchContacts } from "../../redux/contacts/operations.js";
 import ContactForm from "../../components/ContactForm/ContactForm.jsx";
 import SearchBox from "../../components/SearchBox/SearchBox.jsx";
 import ContactList from "../../components/ContactList/ContactList.jsx";
-import { selectIsLoading, selectError } from "../../redux/contacts/selectors.js";
+import { selectLoading, selectError } from "../../redux/contacts/selectors.js";
 import styles from "./ContactsPage.module.css";
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
+  const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const ContactsPage = () => {
       <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox />
-      {isLoading && <p>Loading contacts...</p>}
+      {loading && <p>Loading contacts...</p>}
       {error && <p>Error loading contacts: {error}</p>}
       <ContactList />
     </div>

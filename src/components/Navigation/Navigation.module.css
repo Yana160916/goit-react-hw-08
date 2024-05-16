@@ -3,6 +3,13 @@
     padding: 0px 20px;
     display: flex;
     text-decoration: none;
+    gap: 20px;
+    color: black;
+}
+
+.navHome a{
+    color: black;
+    text-decoration: none;
 }
 
 .navLink:first-child {

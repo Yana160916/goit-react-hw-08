@@ -11,6 +11,7 @@
     text-decoration: none;
     font-size: 24px;
     border-radius: 5px;
+    
 }
 
 .navigation {
@@ -19,8 +20,10 @@
 
 .userMenu {
     margin-right: 20px;
+    
 }
 
 .authNav {
     margin-right: 20px;
+    
 }
